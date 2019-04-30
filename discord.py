@@ -2,6 +2,7 @@ import pyqrcode
 import png
 from discord_webhook import DiscordWebhook, DiscordEmbed
 
+#proxies if you want to use it : list here https://free-proxy-list.net/
 proxies = {
   'https': 'https://45.76.164.105:3128',
   'http': 'http://194.32.78.237:80',
@@ -12,8 +13,8 @@ webhook = DiscordWebhook(url='https://discordapp.com/api/webhooks/ - Enter the h
 
 #ask for link.
 urlq = input("Enter the link you want to make QR as. ")
-nam1 = input("Enter file name with quality. ")
-size = input("Enter file size.= ")
+nam1 = input("Enter file name. ")
+size = input("Enter file size. ")
 
 big_code = pyqrcode.create(urlq)
 big_code.png('QR.png', scale=6)
