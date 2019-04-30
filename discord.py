@@ -25,8 +25,17 @@ big_code.show()
 with open("QR.png", "rb") as f:
     webhook.add_file(file=f.read(), filename='QR.jpg')
 
-embed = DiscordEmbed(title=nam1, description=size, color=242424)
+#str to byte converter.
+byte = urlq.encode("utf-8")
+#Base64conversion
+base2 = base64.urlsafe_b64encode(byte)
 
+print(base2)
+
+#byte to str conversion
+base3 = base2.decode("utf-8")
+
+embed = DiscordEmbed(title=nam1, description=size+'\n'+base3, color=242424)
 
 # add embed object to webhook
 webhook.add_embed(embed)
